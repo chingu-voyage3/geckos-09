@@ -4,4 +4,4 @@ Task: Each member to create their initial commit to the repo by adding their nam
 
 Members:
 	Seth Barthen
-
+	Shapan Dashore
