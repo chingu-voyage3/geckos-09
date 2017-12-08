@@ -7,3 +7,4 @@ Members:
 	* Seth Barthen
 	* Shapan Dashore
 	* Joe Astuccio
+	* Jordan Leslie
