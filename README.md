@@ -8,3 +8,10 @@ Members:
 	* Shapan Dashore
 	* Joe Astuccio
 	* Jordan Leslie
+
+Boilerplate and Dependencies: The boilerplate is a copy of Stephen Grider's Simple Redux Starter
+
+Use axios for making ajax requests
+	const request = axios.get(queryURL)
+	
+React, ReactDOM, Redux, react-redux, react-router, redux-promise, loddash, babel, webpack, chai
