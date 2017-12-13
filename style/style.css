@@ -4,7 +4,7 @@
 
 .placement {
     position: relative;
-    top: 45%	
+    top: 45%
 }
 
 .jordan {
@@ -13,4 +13,8 @@
 
 .seth {
 	color: steelblue;
+}
+
+.joe {
+    color : teal;
 }

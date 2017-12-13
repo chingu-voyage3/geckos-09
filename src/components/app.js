@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import JordanCheckin from './jordan';
+import React, { Component } from "react";
+import JordanCheckin from "./jordan";
 import SethApp from './seth';
-
+import JoeCheckin from "./joe";
 
 export default class App extends Component {
   render() {
@@ -9,6 +9,7 @@ export default class App extends Component {
         <div className="wrapper">
             <JordanCheckin />
             <SethApp />
+            <JoeCheckin />
         </div>
     );
   }
