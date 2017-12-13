@@ -2,15 +2,19 @@
     height: 99vh;
 }
 
+.placement {
+    position: relative;
+    top: 45%
+}
 
 .jordan {
-    position: relative;
-    top: 45%;
     color: coral;
 }
 
+.seth {
+	color: steelblue;
+}
+
 .joe {
-    position: relative;
-    top: 45%;
     color : teal;
 }
