@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import JordanCheckin from './jordan';
+import SethApp from './seth';
 
 
 export default class App extends Component {
@@ -7,6 +8,7 @@ export default class App extends Component {
     return (
         <div className="wrapper">
             <JordanCheckin />
+            <SethApp />
         </div>
     );
   }
