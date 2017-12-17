@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import JordanCheckin from './jordan';
-import SethApp from './seth';
+import Header from './header';
+
 
 
 export default class App extends Component {
   render() {
     return (
         <div className="wrapper">
-            <JordanCheckin />
-            <SethApp />
+            <header>
+                <Header user={user}/>
+            </header>
+            <main></main>
+            <footer></footer>
         </div>
     );
   }
