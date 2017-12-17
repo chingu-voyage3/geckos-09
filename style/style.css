@@ -1,5 +1,5 @@
-.wrapper {
-    height: 99vh;
+body {
+
 }
 
 .placement {
@@ -7,10 +7,48 @@
     top: 45%	
 }
 
-.jordan {
-    color: coral;
+
+.imgs {
+    height: 75px;
+    width: 75px;
 }
 
-.seth {
-	color: steelblue;
+.grid-container {
+    display: grid;
+    grid-gap: 1rem;
+    min-height: 100vh;
+    min-width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-areas:
+            "header"
+            "main"
+            "footer";
+}
+
+.header {
+    grid-area: header;
+    background: palegreen;
+}
+
+.main {
+    grid-area: main;
+
+    background: palegoldenrod;
+}
+
+.footer {
+    grid-area: footer;
+    background: palevioletred;
+}
+
+.header-title {
+}
+
+.flex-container:last-child {
+
+}
+
+.flex-container * {
+    border: 1px solid palegreen;
 }
