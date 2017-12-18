@@ -12,6 +12,13 @@ Each member to create their initial commit to the repo by adding their name to t
 	* Joe Astuccio
 	* Jordan Leslie
 
+Boilerplate and Dependencies: The boilerplate is a copy of Stephen Grider's Simple Redux Starter
+
+Use axios for making ajax requests
+	const request = axios.get(queryURL)
+	
+React, ReactDOM, Redux, react-redux, react-router, redux-promise, loddash, babel, webpack, chai
+
 ##Learning Notes: 
 
 Iterate through object props: 
