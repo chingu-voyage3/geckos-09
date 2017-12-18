@@ -12,7 +12,7 @@ export default class App extends Component {
             <main className="main"></main>
             <footer className="footer"></footer>
         </div>
-    );
+    )
   }
 }
 
