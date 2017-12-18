@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
-import Header from './header';
-
+import Header from '../containers/header';
 
 
 export default class App extends Component {
   render() {
     return (
-        <div className="wrapper">
-            <header>
-                <Header user={user}/>
+        <div className="grid-container">
+            <header className="header">
+                <Header />
             </header>
-            <main></main>
-            <footer></footer>
+            <main className="main"></main>
+            <footer className="footer"></footer>
         </div>
     );
   }
 }
+
+
+
+
