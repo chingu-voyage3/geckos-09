@@ -4,7 +4,7 @@ body {
 
 .placement {
     position: relative;
-    top: 45%	
+    top: 45%
 }
 
 
@@ -94,3 +94,12 @@ body {
 .flex-container * {
     border: 1px solid palegreen;
 }
+
+.seth {
+	color: steelblue;
+}
+
+.joe {
+    color : teal;
+}
+
