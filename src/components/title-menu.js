@@ -1,4 +1,5 @@
 import React from "react";
+import AboutUsModal from "./aboutus-modal";
 
 export default function TitleMenu(props) {
     // Passing in 'props' allows us to grab the data from the parent
@@ -7,9 +8,7 @@ export default function TitleMenu(props) {
             <div className="header-container">
                 <h4 className="header-title">Trello Lite</h4>
                 <div className="header-info-wrap">
-                    <div className="header-info">
-                        <span>i</span>
-                    </div>
+                    <AboutUsModal/>
                     <img className="header-icon imgs rounded-circle" src={props.user.icon}/>
                 </div>
             </div>
