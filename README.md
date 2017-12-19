@@ -8,6 +8,7 @@ Members:
 	* Shapan Dashore
 	* Joe Astuccio
 	* Jordan Leslie
+	* Andrew Knox
 
 Boilerplate and Dependencies: The boilerplate is a copy of Stephen Grider's Simple Redux Starter
 
