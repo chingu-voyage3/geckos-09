@@ -87,10 +87,7 @@ body {
 }
 
 
-.flex-container:last-child {
-
-}
-
 .flex-container * {
     border: 1px solid palegreen;
 }
+
