@@ -1,20 +1,93 @@
-.wrapper {
-    height: 99vh;
+body {
+
 }
 
 .placement {
     position: relative;
-    top: 45%
+    top: 45%	
 }
 
-.jordan {
-    color: coral;
+
+.imgs {
+    height: 75px;
+    width: 75px;
 }
 
-.seth {
-	color: steelblue;
+.grid-container {
+    display: grid;
+    grid-gap: 1rem;
+    min-height: 100vh;
+    min-width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 180px 2fr 1fr;
+    grid-template-areas:
+            "header"
+            "main"
+            "footer";
 }
 
-.joe {
-    color : teal;
+.header {
+    grid-area: header;
+    background: palegreen;
 }
+
+.main {
+    grid-area: main;
+    background: palegoldenrod;
+}
+
+.footer {
+    grid-area: footer;
+    background: palevioletred;
+}
+
+.header-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    max-height: 75px;
+    margin-bottom: 1em;
+}
+
+.board-menu-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    max-height: 75px;
+}
+
+.header-info-wrap {
+    display: flex;
+    align-self: flex-end;
+    min-width: 125px;
+    border: 1px solid palevioletred;
+    justify-content: flex-end;
+}
+
+.header-info {
+    width: 75px;
+    height: 75px;
+    background: palevioletred;
+    border: 2px solid black;
+}
+
+.header-info span {
+    position: relative;
+    font-size: 2em;
+    top: 10px;
+    left: 31px;
+}
+
+
+.header-title {
+    display: inline;
+    align-self: flex-start;
+    line-height: 3em;
+    border: 2px solid black;
+}
+
+
+.flex-container * {
+    border: 1px solid palegreen;
+}
+
