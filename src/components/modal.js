@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import _ from "lodash";
-import ReactDOM from "react-dom";
-import {Modal, Image, Button, Media} from 'react-bootstrap';
+import {Modal, Button, Media} from 'react-bootstrap';
 
+
+// TODO: Change this to a proper a class without breaking it
 const ModalExample = React.createClass({
     getInitialState() {
         return { showModal: false };
@@ -19,7 +19,9 @@ const ModalExample = React.createClass({
     render() {
 
         return (
+            // JSX can only return one element so don't delete the div tag
             <div>
+                {/*The info button the title-menu*/}
                 <Button bsStyle="primary" className="imgs" onClick={this.open}>
                     i
                 </Button>
@@ -52,4 +54,4 @@ const ModalExample = React.createClass({
 
 export default ModalExample;
 
-// ReactDOM.render(<Example />, document.getElementsByClassName("slide-out-menu")[0]);
+
