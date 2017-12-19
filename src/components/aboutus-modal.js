@@ -3,7 +3,7 @@ import {Modal, Button, Media} from 'react-bootstrap';
 
 
 // TODO: Change this to a proper a class without breaking it
-const ModalExample = React.createClass({
+const AboutUsModal = React.createClass({
     getInitialState() {
         return { showModal: false };
     },
@@ -52,6 +52,6 @@ const ModalExample = React.createClass({
     },
 });
 
-export default ModalExample;
+export default AboutUsModal;
 
 
