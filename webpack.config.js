@@ -7,17 +7,24 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js'
   },
-  module: {
-    loaders: [{
-      exclude: /node_modules/,
-      loader: 'babel',
-      query: {
-        presets: ['react', 'es2015', 'stage-1']
+  devtool: 'inline-source-map',
+  module: { 
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+            'style-loader',
+            'css-loader'
+        ]
+      },
+      {
+        test: /\.js$|.jsx$/,
+        exclude: /(node_modules)/,
+        use: [
+          "babel-loader"
+        ]
       }
-    }]
-  },
-  resolve: {
-    extensions: ['', '.js', '.jsx']
+    ]
   },
   devServer: {
     historyApiFallback: true,

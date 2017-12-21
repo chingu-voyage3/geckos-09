@@ -1,0 +1,36 @@
+.login {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr 3fr;
+    grid-template-areas:
+        "header header header"
+        ". main ."
+        "footer footer footer";
+}
+
+.header {
+    grid-area: header;
+}
+
+.login-form {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 2fr 2fr 1fr;
+    grid-template-areas:
+        ". email ."
+        ". password ."
+        ". button ."
+}
+
+.login-email {
+    grid-area: email;
+}
+
+.login-password{
+    grid-area: password;
+}
+
+.login-button {
+    grid-area: button;
+}

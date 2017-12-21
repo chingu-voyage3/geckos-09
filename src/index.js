@@ -5,6 +5,7 @@ import { createStore, applyMiddleware, compose } from "redux";
 import ReduxPromise from "redux-promise";
 import App from "./components/app";
 import reducers from "./reducers";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
@@ -16,13 +17,16 @@ const composeEnhancers =
         }) : compose;
 
 const enhancer = composeEnhancers(
-    applyMiddleware(ReduxPromise),
+    applyMiddleware(ReduxPromise)
     // other store enhancers if any
 );
 const store = createStore(reducers, enhancer);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
-  </Provider>
-  , document.querySelector('.container'));
+    <MuiThemeProvider>
+        <App />
+    </MuiThemeProvider>
+  </Provider>, 
+  document.querySelector('.app-container')
+);
