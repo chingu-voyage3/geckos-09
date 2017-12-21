@@ -6,11 +6,13 @@ import TitleMenu from "../components/title-menu";
 class Header extends Component {
     render() {
         return (
-            <section>
-                {/*Passing the proper object to our child components*/}
-                <TitleMenu user={this.props.user} />
-                <BoardMenu board={this.props.board} />
-            </section>
+            <header className="header">
+                <section>
+                    {/*Passing the proper object to our child components*/}
+                    <TitleMenu user={this.props.user} />
+                    <BoardMenu board={this.props.board} />
+                </section>
+            </header>
         );
     }
 }
