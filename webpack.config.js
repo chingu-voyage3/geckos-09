@@ -1,21 +1,16 @@
 module.exports = {
-  entry: [
-    './src/index.js'
-  ],
+  entry: ["./src/index.js"],
   output: {
     path: __dirname,
-    publicPath: '/',
-    filename: 'bundle.js'
+    publicPath: "/",
+    filename: "bundle.js"
   },
-  devtool: 'inline-source-map',
-  module: { 
+  devtool: "cheap-module-source-map",
+  module: {
     rules: [
       {
         test: /\.css$/,
-        use: [
-            'style-loader',
-            'css-loader'
-        ]
+        use: ["style-loader", "css-loader"]
       },
       {
         enforce: "pre",
@@ -25,14 +20,12 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
-        use: [
-          "babel-loader"
-        ]
+        use: ["babel-loader"]
       }
     ]
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: './'
+    contentBase: "./"
   }
 };
