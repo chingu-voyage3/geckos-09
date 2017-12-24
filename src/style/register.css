@@ -21,9 +21,9 @@
 		". welcome ."
 		". link ."
 		". firstname ."
-    ". lastname ."
-    ". email ."
-    ". password ."
+    	". lastname ."
+    	". email ."
+    	". password ."
 		". confirmpassword ."
 		". button .";
 }
