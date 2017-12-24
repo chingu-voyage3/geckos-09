@@ -10,7 +10,7 @@ class Login extends Component {
   render() {
     return (
       <div className="login">
-        <Header />
+        
         <form className="login-form">
           <h3 className="login-title">Log in to Trello Lite</h3>
           <h5 className="register-link">

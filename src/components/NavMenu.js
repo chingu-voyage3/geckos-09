@@ -24,8 +24,10 @@ class NavMenu extends Component {
         <Drawer
           docked={false}
           open={this.state.open}
-          onRequestChange={open => this.setState({ open })}
-        >
+          onRequestChange={open => this.setState({ open })}>
+          <MenuItem onClick={this.handleClose}>
+            <Link to="/">Home</Link>
+          </MenuItem>
           <MenuItem onClick={this.handleClose}>
             <Link to="/login">Log In</Link>
           </MenuItem>
