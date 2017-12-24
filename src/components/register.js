@@ -12,6 +12,10 @@ class Register extends Component {
       <div className="register">
         <Header />
         <form className="register-form">
+          <h3 className="welcome">Welcome!</h3>
+          <h5 className="link">
+            Already registered? <Link to="/login">Login</Link>
+          </h5>
           <TextField
             className="firstname"
             type="text"
@@ -42,6 +46,7 @@ class Register extends Component {
             name="confirmpassword"
             floatingLabelText="confirm password"
           />
+          <RaisedButton className="register-button">Register</RaisedButton>
         </form>
       </div>
     );

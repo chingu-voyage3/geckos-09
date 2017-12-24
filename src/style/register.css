@@ -1,28 +1,61 @@
-.register {
+.register {  
 	display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-template-rows: 1fr 4fr;
-  grid-template-areas:
-    "header header header"
-    ". main ."
-    "footer footer footer";
+	grid-template-columns: 1fr 3fr 1fr;
+	grid-template-rows: 1fr 4fr;
+	grid-template-areas:
+			"header header header"
+			". main ."
+			"footer footer footer";
 }
 
-.header {
+.Header {
 	grid-area: header;
 }
 
 .register-form {
-	grid-area: main;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 2fr 2fr 2fr 2fr 2fr 1fr;
-	grid-template-areas:
-			". firstname ."
-			". lastname ."
-			". email ."
-			". password ."
-			". confirmpassword ."
-			""
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 2fr 1fr 2fr 2fr 2fr 2fr 2fr 1fr;
+  grid-template-areas:
+		". welcome ."
+		". link ."
+		". firstname ."
+    ". lastname ."
+    ". email ."
+    ". password ."
+		". confirmpassword ."
+		". button .";
 }
 
+.welcome {
+	grid-area: welcome;
+}
+
+.link {
+	grid-area: link;
+}
+
+.firstname {
+	grid-area: firstname;
+}
+
+.lastname {
+	grid-area: lastname;
+}
+
+.email {
+	grid-area: email;
+}
+
+.password {
+	grid-area: password;
+}
+
+.confirmpassword {
+	grid-area: confirmpassword;
+}
+
+.register-button {
+	grid-area: button;
+}
