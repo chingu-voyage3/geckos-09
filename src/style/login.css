@@ -3,13 +3,8 @@
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: 1fr 4fr;
     grid-template-areas:
-        "header header header"
         ". main ."
         "footer footer footer";
-}
-
-.Header {
-    grid-area: header;
 }
 
 .login-form {

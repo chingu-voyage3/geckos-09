@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AppBar from "material-ui/AppBar";
 import NavMenu from "./NavMenu";
+import AboutUs from "./AboutUs";
 
 class Header extends Component {
   render() {
@@ -10,6 +11,8 @@ class Header extends Component {
           title="Trello Lite"
           onLeftIconButtonClick={this.leftIconClick}
           iconElementLeft={<NavMenu />}
+          onRightIconButtonClick={this.rightIconClick}
+          iconElementRight={<AboutUs />}
         />
       </div>
     );
