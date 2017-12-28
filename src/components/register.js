@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import * as firebase from "firebase";
-import firebaseui from "firebaseui";
 import { ValidatorForm } from "react-form-validator-core";
 import { TextValidator } from "react-material-ui-form-validator";
 import FlatButton from "material-ui/FlatButton";
 import RaisedButton from "material-ui/RaisedButton";
+import Home from "./home";
 import Header from "./Header";
 import css from "../style/register.css";
 
@@ -48,26 +48,6 @@ class Register extends Component {
   }
 
   render() {
-    const uiConfig = {
-      signInSuccessUrl: "/home",
-      signInOptions: [
-        // Leave the lines as is for the providers you want to offer your users.
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-        firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-        firebase.auth.GithubAuthProvider.PROVIDER_ID,
-        firebase.auth.EmailAuthProvider.PROVIDER_ID,
-        firebase.auth.PhoneAuthProvider.PROVIDER_ID
-      ],
-      // Terms of service url.
-      tosUrl: ""
-    };
-
-    // Initialize the FirebaseUI Widget using Firebase.
-    var ui = new firebaseui.auth.AuthUI(firebase.auth());
-    // The start method will wait until the DOM is loaded.
-    ui.start("#firebaseui-auth-container", uiConfig);
-
     const { formData, submitted } = this.state;
     return (
       <div className="register">
@@ -80,40 +60,6 @@ class Register extends Component {
           <h5 className="link">
             Already registered? <Link to="/login">Login</Link>
           </h5>
-          <TextValidator
-            floatingLabelText="First Name"
-            onChange={this.handleChange}
-            className="firstname"
-            name="firstname"
-            value={formData.firstname}
-            validators={[
-              "required",
-              "maxStringLength:24",
-              "matchRegexp:[^0-9]$"
-            ]}
-            errorMessages={[
-              "This field is required",
-              "Names must be less than 24 characters",
-              "No numbers allowed in this field"
-            ]}
-          />
-          <TextValidator
-            floatingLabelText="Last Name"
-            onChange={this.handleChange}
-            className="lastname"
-            name="lastname"
-            value={formData.lastname}
-            validators={[
-              "required",
-              "maxStringLength:24",
-              "matchRegexp:[^0-9]$"
-            ]}
-            errorMessages={[
-              "This field is required",
-              "Names must be less than 24 characters",
-              "No numbers allowed in this field"
-            ]}
-          />
           <TextValidator
             floatingLabelText="email"
             onChange={this.handleChange}
@@ -150,7 +96,6 @@ class Register extends Component {
             label={submitted ? "Submitted!" : "Submit"}
             disabled={submitted}
           />
-          <div className="otherforms" id="firebaseui-auth-container" />
         </ValidatorForm>
       </div>
     );

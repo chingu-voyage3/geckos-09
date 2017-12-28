@@ -11,17 +11,14 @@
   grid-area: main;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto auto auto auto auto auto 1fr;
+  grid-template-rows: auto auto auto auto auto auto;
   grid-template-areas:
 		". welcome ."
 		". link ."
-		". firstname ."
-    	". lastname ."
-    	". email ."
-    	". password ."
+    ". email ."
+    ". password ."
 		". confirmpassword ."
-		". button ."
-		". otherforms.";
+		". button .";
 }
 
 .welcome {
@@ -30,14 +27,6 @@
 
 .link {
 	grid-area: link;
-}
-
-.firstname {
-	grid-area: firstname;
-}
-
-.lastname {
-	grid-area: lastname;
 }
 
 .email {
@@ -54,8 +43,4 @@
 
 .register-button {
 	grid-area: button;
-}
-
-.otherforms {
-	grid-area: otherforms;
 }
