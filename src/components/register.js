@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import * as firebase from "firebase";
 import { ValidatorForm } from "react-form-validator-core";
 import { TextValidator } from "react-material-ui-form-validator";
@@ -97,6 +97,7 @@ class Register extends Component {
             disabled={submitted}
           />
         </ValidatorForm>
+        {submitted && <Redirect to="/home" />}
       </div>
     );
   }
