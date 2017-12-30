@@ -68,6 +68,7 @@ typings/
 # dotenv environment variables file
 .env
 
-
+.firebase.config.js
+.firebaseui.config.js
 
 /config.js
