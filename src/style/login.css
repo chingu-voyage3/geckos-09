@@ -1,40 +1,39 @@
 .login {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas:
-        ". main .";
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". main .";
 }
 
 .login-form {
-    grid-area: main;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 2fr 1fr 2fr 2fr 1fr;
-    grid-template-areas:
-        ". title ."
-        ". link ."
-        ". email ."
-        ". password ."
-        ". button ."
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 2fr 1fr 2fr 2fr 1fr;
+  grid-template-areas:
+    ". title ."
+    ". link ."
+    ". email ."
+    ". password ."
+    ". button .";
 }
 
 .login-title {
-    grid-area: title;
+  grid-area: title;
 }
 
 .register-link {
-    grid-area: link;
+  grid-area: link;
 }
 
 .login-email {
-    grid-area: email;
+  grid-area: email;
 }
 
-.login-password{
-    grid-area: password;
+.login-password {
+  grid-area: password;
 }
 
 .login-button {
-    grid-area: button;
+  grid-area: button;
 }
