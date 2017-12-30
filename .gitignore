@@ -69,5 +69,7 @@ typings/
 .env
 
 
-*.config.js
+.firebase.config.js
+.firebaseui.config.js
+
 /config.js
