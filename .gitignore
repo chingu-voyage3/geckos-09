@@ -69,5 +69,5 @@ typings/
 .env
 
 
-
+*.config.js
 /config.js
