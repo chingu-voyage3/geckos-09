@@ -22,8 +22,9 @@
 }
 
 .list-header {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
     flex: 0 0 auto;
     padding: 8px 10px;
     position: relative;
@@ -31,14 +32,7 @@
 }
 
 .list-cards {
-    -webkit-box-flex: 1;
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    margin-bottom: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
     margin: 0 4px;
     padding: 0 4px;
     z-index: 1;
-    min-height: 0;
 }
