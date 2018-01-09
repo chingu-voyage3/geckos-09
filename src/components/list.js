@@ -1,7 +1,13 @@
 import React from "react";
+import css from "../style/component.css";
 
 export default function List(props) {
-  return <div className="list-container">This is the list</div>;
+  return <div className="list-wrapper">
+  <div className="list-content">
+  <div className="list-header">Header</div>
+  <div className="list-cards">List cards go here</div>
+  </div>
+  </div>;
 }
 
 //to finish this component

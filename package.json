@@ -27,6 +27,7 @@
     "@firebase/app-types": "^0.1.0",
     "firebase": "^4.8.1",
     "firebaseui": "^2.5.1",
+    "loader-utils": "^1.1.0",
     "material-ui": "^0.20.0",
     "prop-types": "^15.0.0",
     "react": "^16.2.0",
