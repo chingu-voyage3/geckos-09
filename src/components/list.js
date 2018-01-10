@@ -5,6 +5,14 @@ import css from "../style/component.css";
 class List extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      header: "Header"
+    };
+  }
+
+  onChange = event => {
+    this.setState({header: event.target.value});
+    console.log("header", event.target.value);
   }
 
   render() {
@@ -12,12 +20,13 @@ class List extends Component {
       <div className="list-wrapper">
         <div className="list-content">
           <div className="list-header">
-            <h4>Header</h4>
+            <input type="text" value={this.state.header} onChange={this.onChange} />
             <a className="open-card-constructor"><CardConstructor /></a>
             <a className="list-menu">...</a>
           </div>
-          <div className="list-cards">List cards go here</div>
+          {/* <div className="list-cards">This is a card[{props.cards.id}]: {props.cards.text}</div> */}
           {/* <a className="card-constructor">Add a card</a> */}
+          {this.props.card.text}
         </div>
       </div>
     );
