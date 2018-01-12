@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import CardConstructor from "./card-constructor";
+import Card from "./card";
 import css from "../style/component.css";
 
 class List extends Component {
@@ -30,7 +31,9 @@ class List extends Component {
             </a>
             <a className="list-menu">...</a>
           </div>
-          {/* <div className="list-cards">This is a card[{props.cards.id}]: {props.cards.text}</div> */}
+          <div className="list-cards">
+            <Card />
+          </div>
           {/* <a className="card-constructor">Add a card</a> */}
         </div>
       </div>

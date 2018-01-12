@@ -8,13 +8,12 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     vertical-align: top;
-    white-space: nowrap;
     margin-top: 10px;
 }
 
 .list-content{
     background-color: #e2e4e6;
-    border-radius: 20px;
+    border-radius: 8px;
     min-width: 270px;
     width: auto;
     min-height: 80px;
@@ -22,6 +21,7 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    padding: 8px 8px 40px 8px;
 }
 
 .list-header {
