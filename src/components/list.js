@@ -11,22 +11,27 @@ class List extends Component {
   }
 
   onChange = event => {
-    this.setState({header: event.target.value});
+    this.setState({ header: event.target.value });
     console.log("header", event.target.value);
-  }
+  };
 
   render() {
     return (
       <div className="list-wrapper">
         <div className="list-content">
           <div className="list-header">
-            <input type="text" value={this.state.header} onChange={this.onChange} />
-            <a className="open-card-constructor"><CardConstructor /></a>
+            <input
+              type="text"
+              value={this.state.header}
+              onChange={this.onChange}
+            />
+            <a className="open-card-constructor">
+              <CardConstructor />
+            </a>
             <a className="list-menu">...</a>
           </div>
           {/* <div className="list-cards">This is a card[{props.cards.id}]: {props.cards.text}</div> */}
           {/* <a className="card-constructor">Add a card</a> */}
-          {this.props.card.text}
         </div>
       </div>
     );

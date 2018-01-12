@@ -1,20 +1,23 @@
 /* List Components */
 
 .list-wrapper {
-    width: 270px;
+    min-width: 270px;
+    max-width: 300px;
     margin: 0 5px;
     height: 100%;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    display: inline-block;
     vertical-align: top;
     white-space: nowrap;
+    margin-top: 10px;
 }
 
 .list-content{
     background-color: #e2e4e6;
-    width: 270px;
-    min-height: 50px;
+    border-radius: 20px;
+    min-width: 270px;
+    width: auto;
+    min-height: 80px;
     height: auto;
     box-sizing: border-box;
     display: flex;
@@ -35,6 +38,10 @@
     margin: 0 4px;
     padding: 0 4px;
     z-index: 1;
+}
+
+.list-menu {
+    margin-left: 20px;
 }
 
 .header-right {

@@ -57,6 +57,7 @@ class Board extends Component {
         <BoardMenu board={this.props.board} />
         <button onClick={() => this.wantsToMakeAList()}>New List</button>
         {this.state.makeNewList ? this.openMakeList() : null}
+        <List />
       </div>
     );
   }
