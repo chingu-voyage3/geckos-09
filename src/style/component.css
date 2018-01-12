@@ -29,7 +29,6 @@
     flex-flow: row nowrap;
     justify-content: space-between;
     flex: 0 0 auto;
-    padding: 8px 10px;
     position: relative;
     min-height: 18px;
 }
