@@ -14,6 +14,7 @@ import { bindActionCreators } from "redux";
 import _ from "lodash";
 import List from "./list";
 import BoardMenu from "./board-menu";
+import ListConstructor from "./list-constructor";
 
 // I have plans to extract the makeList functionality into its own component
 // it's cluttering the board a bit
@@ -61,9 +62,8 @@ class Board extends Component {
     return (
       <div className="board">
         <BoardMenu board={this.props.board} />
-        <button onClick={() => this.wantsToMakeAList()}>New List</button>
-        {this.state.makeNewList ? this.openMakeList() : null}
         <List />
+        <ListConstructor />
       </div>
     );
   }

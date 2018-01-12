@@ -6,26 +6,13 @@ import css from "../style/component.css";
 class List extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      header: "Header"
-    };
   }
-
-  onChange = event => {
-    this.setState({ header: event.target.value });
-    console.log("header", event.target.value);
-  };
 
   render() {
     return (
       <div className="list-wrapper">
         <div className="list-content">
           <div className="list-header">
-            <input
-              type="text"
-              value={this.state.header}
-              onChange={this.onChange}
-            />
             <a className="open-card-constructor">
               <CardConstructor />
             </a>
@@ -42,7 +29,3 @@ class List extends Component {
 }
 
 export default List;
-
-//to finish this component
-// connect data from Redux store
-// use map state to props and connect function
