@@ -3,7 +3,7 @@ import Dialog from "material-ui/Dialog";
 import FlatButton from "material-ui/FlatButton";
 import RaisedButton from "material-ui/RaisedButton";
 
-class CardConstructor extends Component {
+class UserInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,18 +21,18 @@ class CardConstructor extends Component {
 
   render() {
     return (
-      <div className="card-constructor">
-        <RaisedButton label="Add a task" onClick={this.handleOpen} />
+      <div className="user-info">
+        <RaisedButton label="User Info" onClick={this.handleOpen} />
         <Dialog
-          title="Make a card"
+          title="User info"
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
-          <p>The form goes here</p>
+          <p>User info goes here</p>
         </Dialog>
       </div>
     );
   }
 }
 
-export default CardConstructor;
+export default UserInfo;

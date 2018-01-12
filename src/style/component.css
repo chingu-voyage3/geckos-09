@@ -36,3 +36,8 @@
     padding: 0 4px;
     z-index: 1;
 }
+
+.header-right {
+    display: flex;
+    flex-flow: row nowrap;
+}

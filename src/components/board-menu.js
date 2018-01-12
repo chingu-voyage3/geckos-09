@@ -1,4 +1,5 @@
 import React from "react";
+import css from "../style/board-menu.css";
 
 /* The props are being passed from the redux store to header and then to BoardMenu */
 export default function BoardMenu(props) {

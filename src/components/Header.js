@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AppBar from "material-ui/AppBar";
 import NavMenu from "./NavMenu";
-import AboutUs from "./AboutUs";
+import HeaderRight from "./header-right";
 import css from "../style/header.css";
 
 class Header extends Component {
@@ -13,7 +13,7 @@ class Header extends Component {
           onLeftIconButtonClick={this.leftIconClick}
           iconElementLeft={<NavMenu />}
           onRightIconButtonClick={this.rightIconClick}
-          iconElementRight={<AboutUs />}
+          iconElementRight={<HeaderRight />}
         />
       </div>
     );
