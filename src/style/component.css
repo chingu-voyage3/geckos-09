@@ -1,5 +1,10 @@
 /* List Components */
 
+.board-flex {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
 .list-wrapper {
     min-width: 270px;
     max-width: 300px;

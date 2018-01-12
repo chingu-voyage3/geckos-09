@@ -12,55 +12,21 @@ import {
 } from "../actions/index";
 import { bindActionCreators } from "redux";
 import _ from "lodash";
-import List from "./list";
-import BoardMenu from "./board-menu";
-import ListConstructor from "./list-constructor";
+import List from "../components/list";
+import BoardMenu from "../components/board-menu";
+import ListConstructor from "../components/list-constructor";
+import css from "../style/component.css";
 
-// I have plans to extract the makeList functionality into its own component
-// it's cluttering the board a bit
 class Board extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      makeNewList: false
-    };
+    this.state = {};
   }
 
-  wantsToMakeAList() {
-    this.setState({ makeNewList: true });
-  }
-  closeMakeList() {
-    console.log("Closing makeList()");
-    this.setState({ makeNewList: false });
-    console.log(this.state.makeNewList);
-  }
-  openMakeList() {
-    return (
-      <div>
-        <input placeholder="List name" />
-        <button type="submit">Submit</button>
-        <button type="button" onClick={() => this.closeMakeList()}>
-          Cancel
-        </button>
-      </div>
-    );
-  }
-
-  addList(event) {
-    // return some jsx
-    // event.preventDefault();
-
-    // This works when the user presses any key atm *bug*
-    if (event.which === 13) {
-      console.log("you hit enter");
-    } else {
-      console.log("addList");
-    }
-  }
   render() {
     return (
-      <div className="board">
+      <div className="board-flex">
         <BoardMenu board={this.props.board} />
         <List />
         <ListConstructor />
