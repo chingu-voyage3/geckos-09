@@ -24,12 +24,22 @@ class Board extends Component {
     this.state = {};
   }
 
+  setHeaderToStore(header) {
+    this.props.getLists(header);
+  }
+
   render() {
     return (
       <div className="board-flex">
         <BoardMenu board={this.props.board} />
         <List />
-        <ListConstructor />
+        <ListConstructor
+          // Grabs state.initHeader and dispatches it to the redux store
+          // The data returned from ListConstructor is available to board
+          //via setHeaderToStore callback function
+          store={header => this.setHeaderToStore(header)}
+          lists={this.props.lists}
+        />
       </div>
     );
   }

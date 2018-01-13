@@ -25,9 +25,7 @@ class ListConstructor extends Component {
   }
 
   setNewHeader(event) {
-    this.setState({ newHeader: event.target.value });
-    this.setState({ initHeader: this.state.newHeader });
-    console.log("Header was set as", this.state.newHeader);
+    this.props.store(this.state.newHeader);
   }
 
   revertChanges() {
@@ -72,6 +70,7 @@ class ListConstructor extends Component {
         ) : null}
         {this.state.isOpen ? this.renderListConstructor() : null}
         <p>New List Header: {this.state.initHeader}</p>
+        <p>Now in redux: {this.props.lists}</p>
       </div>
     );
   }
