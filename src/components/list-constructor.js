@@ -7,53 +7,61 @@ class ListConstructor extends Component {
     super(props);
     this.state = {
       isOpen: false,
-      newListText: ""
+      initHeader: "",
+      newHeader: ""
     };
   }
 
   openListConstructor() {
     this.setState({ isOpen: true });
-    console.log("isOpen:", this.state.isOpen);
   }
 
   closeListConstructor() {
     this.setState({ isOpen: false });
-    this.setState({ newListText: "" });
-    console.log("isOpen:", this.state.isOpen);
   }
 
-  getNewListText(event) {
-    this.setState({ newListText: event.target.value });
-    console.log("list text: ", event.target.value);
+  getNewHeader(event) {
+    this.setState({ newHeader: event.target.value });
   }
-  setNewListText(event) {
-    // this.setState({ newListText: event.target.value });
-    this.setState({ newListText: this.state.newListText });
-    console.log("setting list text", this.state.newListText);
+
+  setNewHeader(event) {
+    this.setState({ newHeader: event.target.value });
+    this.setState({ initHeader: this.state.newHeader });
+    console.log("Header was set as", this.state.newHeader);
   }
+
+  revertChanges() {
+    this.setState({ newHeader: "" });
+  }
+
+  handleSubmit(event) {
+    this.setNewHeader(event);
+    this.closeListConstructor();
+  }
+
+  handleCancel() {
+    this.revertChanges();
+    this.closeListConstructor();
+  }
+
   renderListConstructor() {
     return (
       <span>
         <TextField
           hintText="List name"
           floatingLabelText="Add a list.."
-          onChange={event => this.getNewListText(event)}
+          onChange={event => this.getNewHeader(event)}
         />
         <FlatButton
           label="Submit"
-          onClick={event => this.setNewListText(event)}
+          onClick={event => this.handleSubmit(event)}
         />
-        <FlatButton
-          label="Cancel"
-          onClick={() => this.closeListConstructor()}
-        />
+        <FlatButton label="Cancel" onClick={() => this.handleCancel()} />
       </span>
     );
   }
 
   render() {
-    let listText = null;
-
     return (
       <div>
         {!this.state.isOpen ? (
@@ -63,7 +71,7 @@ class ListConstructor extends Component {
           />
         ) : null}
         {this.state.isOpen ? this.renderListConstructor() : null}
-        <p>New List Header: {this.state.newListText}</p>
+        <p>New List Header: {this.state.initHeader}</p>
       </div>
     );
   }
