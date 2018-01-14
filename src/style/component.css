@@ -5,6 +5,10 @@
     flex-flow: row nowrap;
 }
 
+.list-bg {
+    background-color: #e2e4e6;
+}
+
 .list-wrapper {
     min-width: 270px;
     max-width: 300px;
