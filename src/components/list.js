@@ -24,7 +24,9 @@ class List extends Component {
         >
           <CardHeader title={this.props.list.header} />
           <CardText expandable={false}>
-            <TaskCard />
+            {_.map(this.props.cards, card => (
+              <TaskCard key={card.id} text={card.text} />
+            ))}
           </CardText>
           <CardActions>
             <CardConstructor

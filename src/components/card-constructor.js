@@ -12,7 +12,7 @@ class CardConstructor extends Component {
       open: false,
       initId: 0,
       id: 0,
-      task: ""
+      text: ""
     };
   }
 
@@ -27,7 +27,7 @@ class CardConstructor extends Component {
   getTask(event) {
     this.setState({
       id: ++this.state.initId,
-      task: event.target.value
+      text: event.target.value
     });
   }
 
@@ -35,7 +35,7 @@ class CardConstructor extends Component {
     this.props.store({
       id: _.size(this.props.cards),
       listId: this.props.id,
-      task: this.state.task
+      text: this.state.text
     });
   }
 
