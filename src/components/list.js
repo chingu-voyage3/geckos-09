@@ -13,6 +13,7 @@ class List extends Component {
       <div className="list-wrapper">
         <div className="list-content">
           <div className="list-header">
+            <p>{this.props.text.header}</p>
             <a className="open-card-constructor">
               <CardConstructor />
             </a>

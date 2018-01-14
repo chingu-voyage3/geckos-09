@@ -8,9 +8,9 @@ class ListConstructor extends Component {
     super(props);
     this.state = {
       isOpen: false,
+      // InitId will never decrease, even if a list is deleted
       initId: 0,
       newId: 0,
-      initHeader: "",
       newHeader: ""
     };
   }
@@ -22,17 +22,17 @@ class ListConstructor extends Component {
   closeListConstructor() {
     this.setState({ isOpen: false });
   }
-
+  // Workaround for not having persistence yet
   getNewHeader(event) {
     this.setState({ newHeader: event.target.value });
   }
-
+  // A callback from board.js that sends the list object
+  // to the redux store
   setNewHeader(event) {
     this.props.store({
-        id: this.state.newId,
-        header: this.state.newHeader
+      id: this.state.newId,
+      header: this.state.newHeader
     });
-    console.log(this.state.newId, this.state.newHeader);
   }
 
   setListId() {
@@ -61,7 +61,7 @@ class ListConstructor extends Component {
         <TextField
           hintText="List name"
           floatingLabelText="Add a list.."
-          onChange={event => this.getNewHeader(event)}
+          onBlur={event => this.getNewHeader(event)}
         />
         <FlatButton
           label="Submit"
@@ -73,7 +73,6 @@ class ListConstructor extends Component {
   }
 
   render() {
-    console.log(this.props.lists);
     return (
       <div>
         {!this.state.isOpen ? (
