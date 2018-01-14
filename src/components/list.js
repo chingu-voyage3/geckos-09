@@ -1,31 +1,36 @@
 import React, { Component } from "react";
+import { Card, CardActions, CardHeader, CardText } from "material-ui/Card";
+import FlatButton from "material-ui/FlatButton";
 import CardConstructor from "./card-constructor";
-import Card from "./card";
+import TaskCard from "./card";
 import css from "../style/component.css";
 
 class List extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      header: "Header"
-    };
   }
-
-  onChange = event => {
-    this.setState({ header: event.target.value });
-    console.log("header", event.target.value);
-  };
 
   render() {
     return (
       <div className="list-wrapper">
-        <div className="list-content">
+        <Card
+          // Inline styling overrides class styling with material UI
+          style={{
+            backgroundColor: "#e2e4e6"
+          }}
+        >
+          <CardHeader title={this.props.text.header} />
+          <CardText expandable={false}>
+            <TaskCard />
+          </CardText>
+          <CardActions>
+            <FlatButton label="Action1" />
+            <FlatButton label="Action2" />
+          </CardActions>
+        </Card>
+        {/* <div className="list-content">
           <div className="list-header">
-            <input
-              type="text"
-              value={this.state.header}
-              onChange={this.onChange}
-            />
+            <p>{this.props.text.header}</p>
             <a className="open-card-constructor">
               <CardConstructor />
             </a>
@@ -33,16 +38,12 @@ class List extends Component {
           </div>
           <div className="list-cards">
             <Card />
-          </div>
-          {/* <a className="card-constructor">Add a card</a> */}
-        </div>
+          </div> */}
+        {/* <a className="card-constructor">Add a card</a> */}
+        {/* </div> */}
       </div>
     );
   }
 }
 
 export default List;
-
-//to finish this component
-// connect data from Redux store
-// use map state to props and connect function
