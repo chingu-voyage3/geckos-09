@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import _ from "lodash";
 import Dialog from "material-ui/Dialog";
 import TextField from "material-ui/TextField";
 import FlatButton from "material-ui/FlatButton";
@@ -32,12 +33,11 @@ class CardConstructor extends Component {
 
   handleSubmit() {
     this.props.store({
-      id: this.state.id,
+      id: _.size(this.props.cards),
       listId: this.props.id,
       task: this.state.task
     });
   }
-  s;
 
   handleCancel() {
     this.setState({
@@ -61,8 +61,6 @@ class CardConstructor extends Component {
   }
 
   render() {
-    console.log(this.props.store);
-    console.log(this.props.cards);
     return (
       <div className="card-constructor">
         <RaisedButton label="Add a task" onClick={this.handleOpen} />
