@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getCards } from "../actions/index";
+import { bindActionCreators } from "redux";
 import { Card, CardActions, CardHeader, CardText } from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
 import CardConstructor from "./card-constructor";
@@ -19,31 +22,30 @@ class List extends Component {
             backgroundColor: "#e2e4e6"
           }}
         >
-          <CardHeader title={this.props.text.header} />
+          <CardHeader title={this.props.list.header} />
           <CardText expandable={false}>
             <TaskCard />
           </CardText>
           <CardActions>
-            <FlatButton label="Action1" />
-            <FlatButton label="Action2" />
+            <CardConstructor
+              id={this.props.list.id}
+              cards={this.props.cards}
+              store={this.props.getCards}
+            />
           </CardActions>
         </Card>
-        {/* <div className="list-content">
-          <div className="list-header">
-            <p>{this.props.text.header}</p>
-            <a className="open-card-constructor">
-              <CardConstructor />
-            </a>
-            <a className="list-menu">...</a>
-          </div>
-          <div className="list-cards">
-            <Card />
-          </div> */}
-        {/* <a className="card-constructor">Add a card</a> */}
-        {/* </div> */}
       </div>
     );
   }
 }
 
-export default List;
+// All the objects in the redux store are available to board as props.members (etc)
+function mapStateToProps({ cards }) {
+  return { cards };
+}
+// These dispatch methods are what you'll need to send data to the redux store
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ getCards }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(List);

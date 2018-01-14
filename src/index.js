@@ -13,7 +13,7 @@ import css from "./style/style.css";
 
 firebase.initializeApp(firebaseConfig);
 
-// const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
+// Append other middleware to the array
 const middleware = [ReduxPromise];
 const composeEnhancers =
   typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__

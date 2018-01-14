@@ -1,4 +1,4 @@
-import { GET_LISTS } from "../constants/constants";
+import { GET_LISTS, GET_CARDS } from "../constants/constants";
 
 export function getMembers() {
   return {
@@ -19,9 +19,10 @@ export function getLists(lists) {
   };
 }
 
-export function getCards() {
+export function getCards(cards) {
   return {
-    type: DUMMY_DATA
+    type: GET_CARDS,
+    payload: cards
   };
 }
 

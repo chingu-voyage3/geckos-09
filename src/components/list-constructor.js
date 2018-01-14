@@ -6,6 +6,11 @@ import TextField from "material-ui/TextField";
 class ListConstructor extends Component {
   constructor(props) {
     super(props);
+
+    // Props from board.js
+    // this.props.getList: passes the new list object to reducer
+    // this.props.list: list object from redux store
+
     this.state = {
       isOpen: false,
       // InitId will never decrease, even if a list is deleted
@@ -13,6 +18,15 @@ class ListConstructor extends Component {
       newId: 0,
       newHeader: ""
     };
+  }
+
+  // A callback from board.js that sends the list object
+  // to the redux store
+  setNewHeader(event) {
+    this.props.store({
+      id: this.state.newId,
+      header: this.state.newHeader
+    });
   }
 
   openListConstructor() {
@@ -25,14 +39,6 @@ class ListConstructor extends Component {
   // Workaround for not having persistence yet
   getNewHeader(event) {
     this.setState({ newHeader: event.target.value });
-  }
-  // A callback from board.js that sends the list object
-  // to the redux store
-  setNewHeader(event) {
-    this.props.store({
-      id: this.state.newId,
-      header: this.state.newHeader
-    });
   }
 
   setListId() {

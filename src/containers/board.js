@@ -32,7 +32,9 @@ class Board extends Component {
     return (
       <div className="board-flex">
         <BoardMenu board={this.props.board} />
-        {_.map(this.props.lists, list => <List key={list.id} text={list} />)}
+        {_.map(this.props.lists, list => (
+          <List key={list.id} list={list} />
+        ))}
         <ListConstructor
           // Grabs state.initHeader and dispatches it to the redux store
           // The data returned from ListConstructor is available to board

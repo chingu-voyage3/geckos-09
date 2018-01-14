@@ -1,10 +1,9 @@
-import * as constant from '../constants/constants';
-import { cards } from '../settings/dummy-data';
+import { GET_CARDS } from "../constants/constants";
 
-export default function (state = cards, action) {
+export default function(state = null, action) {
   switch (action.type) {
-    case constant.GET_CARDS:
-      return action.payload;
+    case GET_CARDS:
+      return { ...state, [action.payload.id]: action.payload };
   }
   return state;
 }
