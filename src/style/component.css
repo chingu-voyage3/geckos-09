@@ -1,0 +1,49 @@
+/* List Components */
+
+.list-wrapper {
+    min-width: 270px;
+    max-width: 300px;
+    margin: 0 5px;
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: top;
+    margin-top: 10px;
+}
+
+.list-content{
+    background-color: #e2e4e6;
+    border-radius: 8px;
+    min-width: 270px;
+    width: auto;
+    min-height: 80px;
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 8px 40px 8px;
+}
+
+.list-header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    flex: 0 0 auto;
+    position: relative;
+    min-height: 18px;
+}
+
+.list-cards {
+    margin: 0 4px;
+    padding: 0 4px;
+    z-index: 1;
+}
+
+.list-menu {
+    margin-left: 20px;
+}
+
+.header-right {
+    display: flex;
+    flex-flow: row nowrap;
+}

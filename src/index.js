@@ -5,7 +5,7 @@ import { createStore, applyMiddleware, compose } from "redux";
 import ReduxPromise from "redux-promise";
 import * as firebase from "firebase";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import firebaseConfig from "../.firebase.config";
+import firebaseConfig from "./.firebase.config";
 import App from "./components/app";
 import reducers from "./reducers";
 import css from "./style/style.css";
