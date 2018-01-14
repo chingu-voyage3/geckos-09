@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import _ from "lodash";
 import FlatButton from "material-ui/FlatButton";
 import TextField from "material-ui/TextField";
 
@@ -7,6 +8,8 @@ class ListConstructor extends Component {
     super(props);
     this.state = {
       isOpen: false,
+      initId: 0,
+      newId: 0,
       initHeader: "",
       newHeader: ""
     };
@@ -25,7 +28,15 @@ class ListConstructor extends Component {
   }
 
   setNewHeader(event) {
-    this.props.store(this.state.newHeader);
+    this.props.store({
+        id: this.state.newId,
+        header: this.state.newHeader
+    });
+    console.log(this.state.newId, this.state.newHeader);
+  }
+
+  setListId() {
+    this.setState({ newId: ++this.state.initId });
   }
 
   revertChanges() {
@@ -34,11 +45,13 @@ class ListConstructor extends Component {
 
   handleSubmit(event) {
     this.setNewHeader(event);
+    this.setListId();
     this.closeListConstructor();
   }
 
   handleCancel() {
     this.revertChanges();
+    this.setState({ newId: this.state.initId });
     this.closeListConstructor();
   }
 
@@ -60,6 +73,7 @@ class ListConstructor extends Component {
   }
 
   render() {
+    console.log(this.props.lists);
     return (
       <div>
         {!this.state.isOpen ? (
@@ -69,8 +83,7 @@ class ListConstructor extends Component {
           />
         ) : null}
         {this.state.isOpen ? this.renderListConstructor() : null}
-        <p>New List Header: {this.state.initHeader}</p>
-        <p>Now in redux: {this.props.lists}</p>
+        <p>Now in redux:{_.map(this.props.lists, list => list.header)}</p>
       </div>
     );
   }
