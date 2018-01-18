@@ -33,7 +33,7 @@ class CardConstructor extends Component {
 
   handleSubmit() {
     this.props.store({
-      id: _.size(this.props.cards),
+      id: ++this.state.id,
       listId: this.props.id,
       text: this.state.text
     });
