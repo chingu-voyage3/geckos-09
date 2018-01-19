@@ -13,13 +13,18 @@ class List extends Component {
     super(props);
 
     this.state = {
-      cards: [];
-    }
+      cards: []
+    };
   }
 
-  addCardById(cardId) {
-    this.state.cards.push(cardId);
-  }
+  // Use arrow functions to bind the argument and maintain the context of this
+  // It's the same as this.addCardById.bind(this, cardId)
+  // If you bind the function inside JSX it will create new instances
+  // upon rerendering
+  addCardById = cardId => {
+    console.log(this.state);
+    return { ...this.state.cards.push(cardId) };
+  };
 
   render() {
     return (

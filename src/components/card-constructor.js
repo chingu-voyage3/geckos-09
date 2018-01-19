@@ -32,15 +32,18 @@ class CardConstructor extends Component {
   }
 
   handleSubmit() {
-    const { id, text } = this.state;
-    const { listId, addCardById } = this.props;
+    const { id, initId, text } = this.state;
+    const { listId, addToList } = this.props;
 
     this.props.store({
       id,
       listId,
       text
     });
-    addCardById(this.state.id);
+    addToList(id);
+    this.setState({
+      initId: id
+    });
   }
 
   handleCancel() {
@@ -65,7 +68,7 @@ class CardConstructor extends Component {
   }
 
   render() {
-    console.log(this.state.id);
+    console.log(this.state.initId);
     return (
       <div className="card-constructor">
         <RaisedButton label="Add a task" onClick={this.handleOpen} />
