@@ -21,9 +21,12 @@ class List extends Component {
   // It's the same as this.addCardById.bind(this, cardId)
   // If you bind the function inside JSX it will create new instances
   // upon rerendering
-  addCardById = cardId => {
-    console.log(this.state);
-    return { ...this.state.cards.push(cardId) };
+  renderCardsToList = (cards, list) => {
+    const { id } = list;
+
+    return _.map(cards.byListId[id], function(card) {
+      return <TaskCard key={card.id} text={card.text} />;
+    });
   };
 
   render() {
@@ -37,9 +40,9 @@ class List extends Component {
         >
           <CardHeader title={this.props.list.header} />
           <CardText expandable={false}>
-            {_.map(this.props.cards, card => (
-              <TaskCard key={card.id} text={card.text} />
-            ))}
+            {this.props.cards !== null
+              ? this.renderCardsToList(this.props.cards, this.props.list)
+              : null}
           </CardText>
           <CardActions>
             <CardConstructor

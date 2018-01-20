@@ -40,7 +40,6 @@ class CardConstructor extends Component {
       listId,
       text
     });
-    addToList(id);
     this.setState({
       initId: id
     });
@@ -68,7 +67,6 @@ class CardConstructor extends Component {
   }
 
   render() {
-    console.log(this.state.initId);
     return (
       <div className="card-constructor">
         <RaisedButton label="Add a task" onClick={this.handleOpen} />
