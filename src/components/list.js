@@ -11,10 +11,6 @@ import css from "../style/component.css";
 class List extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      cards: []
-    };
   }
 
   // Use arrow functions to bind the argument and maintain the context of this
@@ -49,7 +45,6 @@ class List extends Component {
               listId={this.props.list.id}
               cards={this.props.cards}
               store={this.props.addCard}
-              addToList={this.addCardById}
             />
           </CardActions>
         </Card>

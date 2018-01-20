@@ -10,6 +10,7 @@ class CardConstructor extends Component {
     super(props);
     this.state = {
       open: false,
+      // initId for reset
       initId: 0,
       id: 0,
       text: ""
@@ -24,35 +25,44 @@ class CardConstructor extends Component {
     this.setState({ open: false });
   };
 
-  getTask(event) {
+  getTask = event => {
     this.setState({
       id: ++this.state.initId,
       text: event.target.value
     });
-  }
+  };
 
-  handleSubmit() {
+  handleSubmit = () => {
     const { id, initId, text } = this.state;
-    const { listId, addToList } = this.props;
+    const { listId } = this.props;
 
     this.props.store({
       id,
       listId,
       text
     });
+
     this.setState({
       initId: id
     });
-  }
 
-  handleCancel() {
+    this.handleClose();
+  };
+
+  revertChanges = () => {
     this.setState({
+      // reset id to previous value
       id: this.state.initId,
       text: ""
     });
-    this.handleClose();
   }
-  renderCardConstructor() {
+
+  handleCancel = () => {
+    this.revertChanges();
+    this.handleClose();
+  };
+
+  renderCardConstructor = () => {
     return (
       <span>
         <TextField
@@ -60,11 +70,11 @@ class CardConstructor extends Component {
           floatingLabelText="Add a task.."
           onBlur={event => this.getTask(event)}
         />
-        <FlatButton label="Submit" onClick={() => this.handleSubmit()} />
-        <FlatButton label="Cancel" onClick={() => this.handleCancel()} />
+        <FlatButton label="Submit" onClick={this.handleSubmit} />
+        <FlatButton label="Cancel" onClick={this.handleCancel} />
       </span>
     );
-  }
+  };
 
   render() {
     return (
