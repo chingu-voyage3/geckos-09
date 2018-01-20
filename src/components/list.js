@@ -43,7 +43,7 @@ class List extends Component {
           </CardText>
           <CardActions>
             <CardConstructor
-              id={this.props.list.id}
+              listId={this.props.list.id}
               cards={this.props.cards}
               store={this.props.addCard}
               addToList={this.addCardById}
