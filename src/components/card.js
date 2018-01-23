@@ -7,8 +7,8 @@ export default function TaskCard(props) {
     <Card>
       <CardText expandable={false}>{props.text}</CardText>
       <CardActions>
-        <FlatButton label="Action1" />
-        <FlatButton label="Action2" />
+        <FlatButton label="Edit" />
+        <FlatButton label="Delete" />
       </CardActions>
     </Card>
   );
