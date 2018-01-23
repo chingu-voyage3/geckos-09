@@ -1,4 +1,4 @@
-import { ADD_CARD } from "../constants/constants";
+import { ADD_CARD, DELETE_CARD } from "../constants/constants";
 import merge from "lodash/merge";
 
 const byListId = (state, action) => {
@@ -37,12 +37,21 @@ const allId = (state, action) => {
   return [...state.allId, id];
 };
 
+const deleteCard = (state, action) => {
+  // payload == id of post to be deleted
+  return _.omit(state, action.payload);
+};
+
 export default function(state = null, action) {
   switch (action.type) {
     case ADD_CARD:
       return {
         byListId: byListId(state, action),
         allId: allId(state, action)
+      };
+    case DELETE_CARD:
+      return {
+        deleteCard: deleteCard(state, action)
       };
   }
   return state;
