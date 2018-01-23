@@ -6,8 +6,8 @@ import { connect } from "react-redux";
 import {
   getMembers,
   getUser,
-  getLists,
-  getCards,
+  addList,
+  addCard,
   getBoard
 } from "../actions/index";
 import { bindActionCreators } from "redux";
@@ -25,14 +25,14 @@ class Board extends Component {
   }
 
   setHeaderToStore(header) {
-    this.props.getLists(header);
+    this.props.addList(header);
   }
 
   render() {
     return (
       <div className="board-flex">
         <BoardMenu board={this.props.board} />
-        {_.map(this.props.lists, list => <List key={list.id} text={list} />)}
+        {_.map(this.props.lists, list => <List key={list.id} list={list} />)}
         <ListConstructor
           // Grabs state.initHeader and dispatches it to the redux store
           // The data returned from ListConstructor is available to board
@@ -52,7 +52,7 @@ function mapStateToProps({ members, user, lists, cards, board }) {
 // These dispatch methods are what you'll need to send data to the redux store
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { getMembers, getUser, getLists, getCards, getBoard },
+    { getMembers, getUser, addList, getBoard },
     dispatch
   );
 }

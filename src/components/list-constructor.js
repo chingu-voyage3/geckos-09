@@ -6,6 +6,11 @@ import TextField from "material-ui/TextField";
 class ListConstructor extends Component {
   constructor(props) {
     super(props);
+
+    // Props from board.js
+    // this.props.getList: passes the new list object to reducer
+    // this.props.list: list object from redux store
+
     this.state = {
       isOpen: false,
       // InitId will never decrease, even if a list is deleted
@@ -15,62 +20,60 @@ class ListConstructor extends Component {
     };
   }
 
-  openListConstructor() {
-    this.setState({ isOpen: true });
-  }
-
-  closeListConstructor() {
-    this.setState({ isOpen: false });
-  }
-  // Workaround for not having persistence yet
-  getNewHeader(event) {
-    this.setState({ newHeader: event.target.value });
-  }
   // A callback from board.js that sends the list object
   // to the redux store
-  setNewHeader(event) {
+  setNewHeader = event => {
     this.props.store({
       id: this.state.newId,
       header: this.state.newHeader
     });
-  }
+  };
 
-  setListId() {
+  openListConstructor = () => {
+    this.setState({ isOpen: true });
+  };
+
+  closeListConstructor = () => {
+    this.setState({ isOpen: false });
+  };
+  // Workaround for not having persistence yet
+  getNewHeader = event => {
+    this.setState({ newHeader: event.target.value });
+  };
+
+  setListId = () => {
     this.setState({ newId: ++this.state.initId });
-  }
+  };
 
-  revertChanges() {
+  revertChanges = () => {
     this.setState({ newHeader: "" });
-  }
+  };
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     this.setNewHeader(event);
     this.setListId();
     this.closeListConstructor();
-  }
+  };
 
-  handleCancel() {
+  handleCancel = () => {
     this.revertChanges();
     this.setState({ newId: this.state.initId });
     this.closeListConstructor();
-  }
+  };
 
-  renderListConstructor() {
+  renderListConstructor = () => {
     return (
       <span>
         <TextField
           hintText="List name"
           floatingLabelText="Add a list.."
-          onBlur={event => this.getNewHeader(event)}
+          onBlur={this.getNewHeader}
         />
-        <FlatButton
-          label="Submit"
-          onClick={event => this.handleSubmit(event)}
-        />
-        <FlatButton label="Cancel" onClick={() => this.handleCancel()} />
+        <FlatButton label="Submit" onClick={this.handleSubmit} />
+        <FlatButton label="Cancel" onClick={this.handleCancel} />
       </span>
     );
-  }
+  };
 
   render() {
     return (
@@ -78,7 +81,7 @@ class ListConstructor extends Component {
         {!this.state.isOpen ? (
           <FlatButton
             label="Add a list..."
-            onClick={() => this.openListConstructor()}
+            onClick={this.openListConstructor}
           />
         ) : null}
         {this.state.isOpen ? this.renderListConstructor() : null}
