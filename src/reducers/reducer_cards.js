@@ -2,7 +2,6 @@ import { ADD_CARD, DELETE_CARD } from "../constants/constants";
 import merge from "lodash/merge";
 import omitDeep from "omit-deep-lodash";
 
-
 const byListId = (state, action) => {
   // some ES6 magic for popping off an object's properties and
   // creating variables of the same name (Ex. const payload = action.payload)
@@ -13,17 +12,21 @@ const byListId = (state, action) => {
       [id]: payload
     }
   };
-
   if (state == null) {
     return {
       [listId]: {
         [id]: payload
       }
     };
+  } else if (state.byListId[listId] == {}) {
+    // even if list is empty of cards, byListId must return null
+    // if not null JSX will throw an error upon rerendering the empty card list
+    return null;
+  } else {
+    return _.merge({}, state.byListId, newState);
   }
   // _.merge is used here because it allows 2 objects to be merged
   // and returns a new copy of state - state cannot be directly mutated
-  return _.merge({}, state.byListId, newState);
 };
 
 const allId = (state, action) => {
@@ -43,9 +46,16 @@ const deleteCard = (state, action) => {
   // payload == id of post to be deleted and list id
   const { payload } = action;
   const { cardId, listId } = payload;
-  console.log("deleteCard", payload);
-  console.log(_.omit(state, state.byListId[listId][cardId]));
-  return _.omit({}, state, state.byListId[listId][cardId]);
+
+  const omitter = {
+    // omitDeep uses recursion to removes 'all' matching keys in an object
+    // needed this because the state is nested
+    // unique keys are made with generator
+    byListId: omitDeep(state.byListId, [cardId]),
+    allId: _.without(state.allId, cardId)
+  };
+
+  return omitter;
 };
 
 export default function(state = null, action) {

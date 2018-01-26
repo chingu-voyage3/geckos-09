@@ -39,7 +39,6 @@ class List extends Component {
 
   render() {
     const { deleteCard, addCard, cards, list } = this.props;
-    console.log(this.props);
     return (
       <div className="list-wrapper">
         <Card

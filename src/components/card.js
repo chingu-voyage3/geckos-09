@@ -20,7 +20,6 @@ class TaskCard extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <Card>
         <CardText expandable={false}>{this.props.text}</CardText>
