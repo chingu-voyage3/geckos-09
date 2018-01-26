@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Dialog from "material-ui/Dialog";
+import TextField from "material-ui/TextField";
 import FlatButton from "material-ui/FlatButton";
 import RaisedButton from "material-ui/RaisedButton";
 
@@ -7,7 +8,9 @@ class SlideMenuRight extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: false,
+      boardName: this.props.board.boardName,
+      teamName: this.props.board.teamName
     };
   }
 
@@ -19,6 +22,23 @@ class SlideMenuRight extends Component {
     this.setState({ open: false });
   };
 
+  getName = (event, name) => {
+    console.log(event.target.value);
+    this.setState({
+      [name]: event.target.value
+    });
+  };
+
+  handleSubmit = () => {
+    this.props.update({
+      boardName: this.state.boardName,
+      teamName: this.state.teamName
+    });
+    this.handleClose();
+  };
+
+  handleCancel = () => {};
+
   render() {
     return (
       <div className="slide-menu-right">
@@ -28,7 +48,21 @@ class SlideMenuRight extends Component {
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
-          <p>Slide Menu</p>
+          <p>Change board name</p>
+
+          <TextField
+            hintText="Enter"
+            floatingLabelText="Board name.."
+            onBlur={event => this.getName(event, "boardName")}
+          />
+          <TextField
+            hintText="Enter"
+            floatingLabelText="Team name.."
+            onBlur={event => this.getName(event, "teamName")}
+          />
+          <br />
+          <FlatButton label="Submit" onClick={this.handleSubmit} />
+          <FlatButton label="Cancel" onClick={this.handleCancel} />
         </Dialog>
       </div>
     );

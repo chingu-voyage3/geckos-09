@@ -3,9 +3,16 @@ import {
   ADD_CARD,
   DELETE_CARD,
   DELETE_LIST,
-  CASCADE_DELETE
+  CASCADE_DELETE,
+  CHANGE_BOARD_INFO
 } from "../constants/constants";
 
+export function changeBoardInfo(board) {
+  return {
+    type: CHANGE_BOARD_INFO,
+    payload: board
+  }
+}
 export function getMembers() {
   return {
     type: DUMMY_DATA
