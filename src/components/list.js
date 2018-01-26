@@ -51,8 +51,6 @@ class List extends Component {
     deleteList({
       id: list.id
     });
-
-    console.log("handleDelete", list);
     // get array of card id's belonging to list
     // delete all cards from list from redux state
     cascadeDelete({
