@@ -6,9 +6,9 @@ import css from "../style/board-menu.css";
 export default function BoardMenu(props) {
   return (
     <div className="board-menu-container">
-      <h4>{props.board.name}</h4>
+      <h4>{props.board.boardName}</h4>
       <h5>{props.board.teamName}</h5>
-      <SlideMenuRight />
+      <SlideMenuRight board={props.board} update={props.update} />
     </div>
   );
 }

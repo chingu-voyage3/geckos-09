@@ -1,5 +1,18 @@
-import { ADD_LIST, ADD_CARD } from "../constants/constants";
+import {
+  ADD_LIST,
+  ADD_CARD,
+  DELETE_CARD,
+  DELETE_LIST,
+  CASCADE_DELETE,
+  CHANGE_BOARD_INFO
+} from "../constants/constants";
 
+export function changeBoardInfo(board) {
+  return {
+    type: CHANGE_BOARD_INFO,
+    payload: board
+  }
+}
 export function getMembers() {
   return {
     type: DUMMY_DATA
@@ -19,9 +32,30 @@ export function addList(list) {
   };
 }
 
+export function deleteList(list) {
+  return {
+    type: DELETE_LIST,
+    payload: list
+  };
+}
+
+export function cascadeDelete(list) {
+  return {
+    type: CASCADE_DELETE,
+    payload: list
+  };
+}
+
 export function addCard(card) {
   return {
     type: ADD_CARD,
+    payload: card
+  };
+}
+
+export function deleteCard(card) {
+  return {
+    type: DELETE_CARD,
     payload: card
   };
 }

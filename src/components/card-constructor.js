@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import _ from "lodash";
+import idGen from "random-id-generator";
 import Dialog from "material-ui/Dialog";
 import TextField from "material-ui/TextField";
 import FlatButton from "material-ui/FlatButton";
@@ -10,8 +11,6 @@ class CardConstructor extends Component {
     super(props);
     this.state = {
       open: false,
-      // initId for reset
-      initId: 0,
       id: 0,
       text: ""
     };
@@ -27,13 +26,13 @@ class CardConstructor extends Component {
 
   getTask = event => {
     this.setState({
-      id: ++this.state.initId,
+      id: idGen(),
       text: event.target.value
     });
   };
 
   handleSubmit = () => {
-    const { id, initId, text } = this.state;
+    const { id, text } = this.state;
     const { listId } = this.props;
 
     this.props.store({
@@ -42,20 +41,16 @@ class CardConstructor extends Component {
       text
     });
 
-    this.setState({
-      initId: id
-    });
-
     this.handleClose();
   };
 
   revertChanges = () => {
     this.setState({
       // reset id to previous value
-      id: this.state.initId,
+      id: 0,
       text: ""
     });
-  }
+  };
 
   handleCancel = () => {
     this.revertChanges();

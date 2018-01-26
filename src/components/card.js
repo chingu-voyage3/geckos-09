@@ -1,15 +1,38 @@
-import React from "react";
+import React, { Component } from "react";
 import { Card, CardActions, CardHeader, CardText } from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
 
-export default function TaskCard(props) {
-  return (
-    <Card>
-      <CardText expandable={false}>{props.text}</CardText>
-      <CardActions>
-        <FlatButton label="Action1" />
-        <FlatButton label="Action2" />
-      </CardActions>
-    </Card>
-  );
+class TaskCard extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  handleDelete = () => {
+    const {cardId, listId, deleteCard} = this.props;
+    // refactor obj
+    const idToDelete = deleteCard({
+      cardId: cardId,
+      listId: listId
+    })
+
+    return idToDelete;
+
+  }
+
+  render() {
+    return (
+      <Card>
+        <CardText expandable={false}>{this.props.text}</CardText>
+        <CardActions>
+          <FlatButton label="Edit" />
+          <FlatButton
+            label="Delete"
+            onClick={this.handleDelete}
+          />
+        </CardActions>
+      </Card>
+    );
+  }
 }
+
+export default TaskCard;
