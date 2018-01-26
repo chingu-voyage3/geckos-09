@@ -63,9 +63,13 @@ const cascadeDelete = (state, action) => {
   const { payload } = action;
   const { listId } = payload;
 
+  // collects the ids from byListId[listId] into an array
+  const idsFromList = _.keys(state.byListId[listId]);
+  console.log("idsFromList", _.difference(state.allId, idsFromList));
+
   const omitter = {
     byListId: _.omit(state.byListId, [listId]),
-    allId: allId(state, action)
+    allId: _.difference(state.allId, idsFromList)
   };
 
   return omitter;
