@@ -23,7 +23,6 @@ class SlideMenuRight extends Component {
   };
 
   getName = (event, name) => {
-    console.log(event.target.value);
     this.setState({
       [name]: event.target.value
     });
@@ -37,7 +36,9 @@ class SlideMenuRight extends Component {
     this.handleClose();
   };
 
-  handleCancel = () => {};
+  handleCancel = () => {
+    this.handleClose();
+  };
 
   render() {
     return (

@@ -44,7 +44,6 @@ class Board extends Component {
           store={header => this.setHeaderToStore(header)}
           lists={this.props.lists}
         />
-        {this.props.board.boardName}
       </div>
     );
   }
