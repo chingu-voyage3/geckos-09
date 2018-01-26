@@ -1,4 +1,9 @@
-import { ADD_LIST, ADD_CARD, DELETE_CARD } from "../constants/constants";
+import {
+  ADD_LIST,
+  ADD_CARD,
+  DELETE_CARD,
+  DELETE_LIST
+} from "../constants/constants";
 
 export function getMembers() {
   return {
@@ -15,6 +20,13 @@ export function getUser() {
 export function addList(list) {
   return {
     type: ADD_LIST,
+    payload: list
+  };
+}
+
+export function deleteList(list) {
+  return {
+    type: DELETE_LIST,
     payload: list
   };
 }

@@ -20,6 +20,8 @@ class List extends Component {
 
   renderCardsToList = (cards, list) => {
     const { id } = list;
+    // REFACTOR: not sure if i need to use .size
+    // REFACTOR: pass key and one all encompassing (ie. card or cardProps) prop to TaskCard
     if (_.size(cards) !== 0) {
       return _.map(cards.byListId[id], card => {
         return (
