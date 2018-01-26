@@ -38,8 +38,12 @@ const allId = (state, action) => {
 };
 
 const deleteCard = (state, action) => {
-  // payload == id of post to be deleted
-  return _.omit(state, action.payload);
+  // payload == id of post to be deleted and list id
+  const { payload } = action;
+  const { cardId, listId } = payload;
+  console.log("deleteCard", payload);
+  console.log(_.omit(state, state.byListId[listId][cardId]));
+  return _.omit({}, state, state.byListId[listId][cardId]);
 };
 
 export default function(state = null, action) {
@@ -50,9 +54,7 @@ export default function(state = null, action) {
         allId: allId(state, action)
       };
     case DELETE_CARD:
-      return {
-        deleteCard: deleteCard(state, action)
-      };
+      return deleteCard(state, action);
   }
   return state;
 }

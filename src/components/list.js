@@ -11,30 +11,34 @@ import css from "../style/component.css";
 class List extends Component {
   constructor(props) {
     super(props);
-
-    this.props.deleteCard = this.props.deleteCard.bind(this);
   }
 
   // Use arrow functions to bind the argument and maintain the context of this
   // It's the same as this.addCardById.bind(this, cardId)
   // If you bind the function inside JSX it will create new instances
   // upon rerendering
+
   renderCardsToList = (cards, list) => {
     const { id } = list;
-
-    return _.map(cards.byListId[id], function(card) {
-      return (
-        <TaskCard
-          key={card.id}
-          id={card.id}
-          text={card.text}
-          delete={this.props.deleteCard}
-        />
-      );
-    });
+    if (_.size(cards) !== 0) {
+      return _.map(cards.byListId[id], card => {
+        return (
+          <TaskCard
+            key={card.id}
+            listId={id}
+            cardId={card.id}
+            text={card.text}
+            deleteCard={this.props.deleteCard}
+          />
+        );
+      });
+    } else {
+      return <p>No cards</p>;
+    }
   };
 
   render() {
+    const { deleteCard, addCard, cards, list } = this.props;
     console.log(this.props);
     return (
       <div className="list-wrapper">
@@ -46,9 +50,7 @@ class List extends Component {
         >
           <CardHeader title={this.props.list.header} />
           <CardText expandable={false}>
-            {this.props.cards !== null
-              ? this.renderCardsToList(this.props.cards, this.props.list)
-              : null}
+            {cards !== null ? this.renderCardsToList(cards, list) : null}
           </CardText>
           <CardActions>
             <CardConstructor
