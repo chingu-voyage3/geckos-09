@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addCard, addList, deleteCard } from "../actions/index";
+import { addCard, addList, deleteCard, deleteList } from "../actions/index";
 import { bindActionCreators } from "redux";
 import { Card, CardActions, CardHeader, CardText } from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
@@ -38,9 +38,15 @@ class List extends Component {
       return <p>No cards</p>;
     }
   };
-
+  handleDelete = () => {
+    const { list, deleteList } = this.props;
+    console.log("handleDelete", list);
+    deleteList({
+      id: list.id
+    });
+  };
   render() {
-    const { deleteCard, addCard, cards, list } = this.props;
+    const { deleteList, deleteCard, addCard, cards, list } = this.props;
     return (
       <div className="list-wrapper">
         <Card
@@ -59,6 +65,7 @@ class List extends Component {
               cards={this.props.cards}
               store={this.props.addCard}
             />
+            <FlatButton label="Delete" onClick={this.handleDelete} />
           </CardActions>
         </Card>
       </div>
@@ -72,7 +79,10 @@ function mapStateToProps({ cards }) {
 }
 // These dispatch methods are what you'll need to send data to the redux store
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addCard, deleteCard, addList }, dispatch);
+  return bindActionCreators(
+    { addCard, deleteCard, addList, deleteList },
+    dispatch
+  );
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);

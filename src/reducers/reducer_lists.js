@@ -9,7 +9,8 @@ const deleteList = (state, action) => {
   // id of list to delete
   const { id } = payload;
 
-  return;
+  console.log("deleteList", id);
+  return omitDeep(state, id);
 };
 export default function(state = null, action) {
   switch (action.type) {
@@ -18,6 +19,7 @@ export default function(state = null, action) {
       // the latest list on to the end of the lists object in redux store
       return { ...state, [action.payload.id]: action.payload };
     case DELETE_LIST:
+      return deleteList(state, action);
   }
   return state;
 }
