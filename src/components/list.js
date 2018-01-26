@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addCard, addList, deleteCard, deleteList } from "../actions/index";
+import {
+  addCard,
+  addList,
+  deleteCard,
+  deleteList,
+  cascadeDelete
+} from "../actions/index";
 import { bindActionCreators } from "redux";
 import { Card, CardActions, CardHeader, CardText } from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
@@ -22,6 +28,7 @@ class List extends Component {
     const { id } = list;
     // REFACTOR: not sure if i need to use .size
     // REFACTOR: pass key and one all encompassing (ie. card or cardProps) prop to TaskCard
+    // REFACTOR: shorted variable references where possible
     if (_.size(cards) !== 0) {
       return _.map(cards.byListId[id], card => {
         return (
@@ -39,10 +46,17 @@ class List extends Component {
     }
   };
   handleDelete = () => {
-    const { list, deleteList } = this.props;
-    console.log("handleDelete", list);
+    const { list, deleteList, cascadeDelete } = this.props;
+
     deleteList({
       id: list.id
+    });
+
+    console.log("handleDelete", list);
+    // get array of card id's belonging to list
+    // delete all cards from list from redux state
+    cascadeDelete({
+      listId: list.id
     });
   };
   render() {
@@ -80,7 +94,7 @@ function mapStateToProps({ cards }) {
 // These dispatch methods are what you'll need to send data to the redux store
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { addCard, deleteCard, addList, deleteList },
+    { addCard, deleteCard, addList, deleteList, cascadeDelete },
     dispatch
   );
 }

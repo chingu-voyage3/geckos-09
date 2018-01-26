@@ -2,7 +2,8 @@ import {
   ADD_LIST,
   ADD_CARD,
   DELETE_CARD,
-  DELETE_LIST
+  DELETE_LIST,
+  CASCADE_DELETE
 } from "../constants/constants";
 
 export function getMembers() {
@@ -27,6 +28,13 @@ export function addList(list) {
 export function deleteList(list) {
   return {
     type: DELETE_LIST,
+    payload: list
+  };
+}
+
+export function cascadeDelete(list) {
+  return {
+    type: CASCADE_DELETE,
     payload: list
   };
 }

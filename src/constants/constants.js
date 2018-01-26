@@ -6,5 +6,6 @@ export const GET_BOARD = "GET_BOARD";
 export const ADD_CARD = "ADD_CARD";
 export const DELETE_CARD = "DELETE_CARD";
 export const DELETE_LIST = "DELETE_LIST";
+export const CASCADE_DELETE = "CASCADE_DELETE";
 
 export const DUMMY_DATA = "DUMMY_DATA";

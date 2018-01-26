@@ -1,4 +1,4 @@
-import { ADD_CARD, DELETE_CARD } from "../constants/constants";
+import { ADD_CARD, DELETE_CARD, CASCADE_DELETE } from "../constants/constants";
 import merge from "lodash/merge";
 import omitDeep from "omit-deep-lodash";
 
@@ -58,6 +58,19 @@ const deleteCard = (state, action) => {
   return omitter;
 };
 
+const cascadeDelete = (state, action) => {
+  // deletes all cards in a list
+  const { payload } = action;
+  const { listId } = payload;
+
+  const omitter = {
+    byListId: _.omit(state.byListId, [listId]),
+    allId: allId(state, action)
+  };
+
+  return omitter;
+};
+
 export default function(state = null, action) {
   switch (action.type) {
     case ADD_CARD:
@@ -67,6 +80,8 @@ export default function(state = null, action) {
       };
     case DELETE_CARD:
       return deleteCard(state, action);
+    case CASCADE_DELETE:
+      return cascadeDelete(state, action);
   }
   return state;
 }
